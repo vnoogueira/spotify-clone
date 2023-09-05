@@ -13,7 +13,14 @@ export class LoginComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
+    this.verificarTokenCallback();
+  }
 
+  verificarTokenCallback(){
+    const token = this.spotityService.obterTokenUrlCallback();
+    if(!!token){
+      this.spotityService.defineAccessToken(token);
+    }
   }
 
   openPageLogin(){
