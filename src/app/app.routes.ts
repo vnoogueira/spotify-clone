@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { autenticadoGuard } from "./guard/autenticado.guard";
 
 
 export const AppRoutes: Routes = [
@@ -8,6 +9,7 @@ export const AppRoutes: Routes = [
   },
   {
     path: 'player',
-    loadChildren: () => import('./pages/player/player.module').then(x => x.PlayerModule)
+    loadChildren: () => import('./pages/player/player.module').then(x => x.PlayerModule),
+   // canMatch: [autenticadoGuard]
   }
 ];
